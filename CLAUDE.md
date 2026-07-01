@@ -187,7 +187,7 @@ e7m actor deploy .
 ```bash
 cd /tmp
 for cell in suki_chassis_fabrication suki_powertrain_assembly suki_cab_assembly suki_hitch_pto_assembly suki_paint_finishing suki_electrical_ecu_load suki_quality_field_test suki_emissions_audit suki_vehicle_attestation_binder; do
-  PYTHONPATH=/path/to/etzhayyim-root/40-engine/kotoba/crates/kotoba-kotodama/cells python3 -c "import ${cell}.cell" 2>&1 | tail -1
+  PYTHONPATH=/path/to/etzhayyim-rootkotoba-lang/kotodama-cells python3 -c "import ${cell}.cell" 2>&1 | tail -1
 done
 ```
 
