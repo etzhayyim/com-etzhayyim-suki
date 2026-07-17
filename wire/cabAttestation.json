@@ -1,0 +1,41 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.suki.cabAttestation",
+  "description": "Cab body assembly with ROPS/FOPS rollover-protection certification + interior + G14 open serial. Per ADR-2605261500.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "cabId": {"type": "string"},
+          "chassisAttestationCid": {"type": "string"},
+          "cabBodyLotId": {"type": "string"},
+          "interiorLotId": {"type": "string"},
+          "ropsFopsCert": {
+            "type": "object",
+            "properties": {
+              "ropsCertCid": {"type": "string", "description": "ISO 5700 ROPS static + dynamic test"},
+              "fopsCertCid": {"type": "string", "description": "ISO 3471 FOPS test"},
+              "iso27307AppliedAttestation": {"type": "boolean", "description": "ISO 27307 sustainable agriculture machinery safety applied"}
+            },
+            "required": ["ropsCertCid", "fopsCertCid"]
+          },
+          "interior": {
+            "type": "object",
+            "properties": {
+              "operatorSeatLotId": {"type": "string", "description": "Suspension-adjustable seat"},
+              "steeringWheelLotId": {"type": "string"},
+              "dashPanelLotId": {"type": "string", "description": "Open ECU UI per G2"},
+              "noSurveillanceHardwareVerified": {"type": "boolean", "description": "N11: no always-on camera / no biometric monitoring"}
+            },
+            "required": ["noSurveillanceHardwareVerified"]
+          },
+          "openSerialReserved": {"type": "string", "description": "G14 open serial reserved (assigned by vehicle_attestation_binder terminal)"},
+          "witnessRobotDids": {"type": "array", "items": {"type": "string"}, "minItems": 2, "description": "G4: Otete-heavy + Mimi Ed25519"}
+        },
+        "required": ["cabId", "chassisAttestationCid", "cabBodyLotId", "ropsFopsCert", "interior", "witnessRobotDids"]
+      }
+    }
+  }
+}

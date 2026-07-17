@@ -1,0 +1,62 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.suki.hitchPtoAttestation",
+ "description"
+ "3-point hitch (ISO 730 Cat I/II/III) + PTO (ISO 500 540/1000 RPM) modular implement attachment. G3 + G9 + N5 anti-seed-lock. Per ADR-2605261500.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"implementDetectionProtocol"
+     {"type" "string",
+      "knownValues" ["ISOBUS-ISO-11783-open"],
+      "description"
+      "G9 + N5: open ISO 11783 (ISOBUS) only; no DRM signature gate; no seed-brand lock"},
+     "hitchLotId" {"type" "string"},
+     "ptoLotId" {"type" "string"},
+     "hitchCategory"
+     {"type" "string",
+      "knownValues" ["Cat-I" "Cat-II" "Cat-III"],
+      "description" "G3: ISO 730 standard category"},
+     "ptoRpmSupported"
+     {"type" "array",
+      "items" {"type" "integer"},
+      "description" "G3: [540], [1000], or [540, 1000] per ISO 500"},
+     "torqueAsaeS203Verify"
+     {"type" "boolean",
+      "description" "ASAE S203 PTO shaft torque assembly"},
+     "hitchPtoId" {"type" "string"},
+     "powertrainAttestationCid" {"type" "string"},
+     "witnessRobotDids"
+     {"type" "array",
+      "items" {"type" "string"},
+      "minItems" 2,
+      "description" "G4: Kuwa + Otete Ed25519"},
+     "ptoSplineStandard"
+     {"type" "string",
+      "knownValues"
+      ["1-3/8 inch 6-spline (Cat I, 540 RPM)"
+       "1-3/8 inch 21-spline (Cat II, 1000 RPM)"
+       "1-3/4 inch 20-spline (Cat III, 1000 RPM)"]},
+     "multiVendorCompatVerify"
+     {"type" "object",
+      "properties"
+      {"kuhnTested" {"type" "boolean"},
+       "kroneTested" {"type" "boolean"},
+       "lemkenTested" {"type" "boolean"},
+       "amazoneTested" {"type" "boolean"},
+       "localFabricationTested" {"type" "boolean"},
+       "noDrmDetectionVerified"
+       {"type" "boolean",
+        "description" "G9 + N5 invariant: open detection, no DRM"},
+       "autoRpmSelectVerified" {"type" "boolean"}},
+      "required" ["noDrmDetectionVerified"]}},
+    "required"
+    ["hitchPtoId"
+     "powertrainAttestationCid"
+     "hitchCategory"
+     "ptoRpmSupported"
+     "implementDetectionProtocol"
+     "multiVendorCompatVerify"
+     "witnessRobotDids"]}}}}

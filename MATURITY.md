@@ -9,7 +9,7 @@ phase-gate (no fossil-only R2+); ≤SAE J3016 Level 3 autonomy; no surveillance 
 | Lexicons | ✅ 9 under `com.etzhayyim.suki.*` (chassis / powertrain / electricalEcu / hitchPto / cab / paint / emissionsAudit / fieldTest / silenSukiReview) |
 | Cells | 🟡 9 path-reserved in `40-engine/.../cells/suki_*` (R0) |
 | Manifest | ✅ present (carries G1–G14) |
-| Tests | ✅ `methods/test_charter_gates.py` — **8 tests, green** (added 2026-06-16; previously NO dedicated test) — pins G9/G10 RTR, G7 fuel, G8 emissions, G4 witness, N11 no-surveillance, G3 implement, G12 KPI-cap; `./run_tests.sh` |
+| Tests | ✅ **9 tests / 41 assertions, green** — pins G9/G10 RTR, G7 fuel, G8 emissions, G4 witness, N11 no-surveillance, G3 implement, G12 KPI-cap, and repository contracts; `bb -cp src:test run_tests.clj` |
 | Methods | ⛔ no offline engine yet (R1 benchtop 50hp loop) |
 
 ## Charter gates pinned by the test

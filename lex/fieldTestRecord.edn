@@ -1,0 +1,77 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.suki.fieldTestRecord",
+ "description"
+ "Drawbar (ASAE S496) + PTO (ASAE S217) + 3-point lift (ISO 730) test. SAE Level 3 driver-in-seat (Norikata R2+); SAE Level 5 NEVER per N6. Per ADR-2605261500 G12.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"g12KpiCapVerify"
+     {"type" "object",
+      "properties"
+      {"maxRoadSpeedKmh"
+       {"type" "integer", "description" "G12: ≤40 km/h"},
+       "maxFieldSpeedKmh"
+       {"type" "integer", "description" "G12: ≤15 km/h"},
+       "maxAxleLoadT" {"type" "integer", "description" "G12: ≤8 t"},
+       "passVerdict" {"type" "boolean"}},
+      "required"
+      ["maxRoadSpeedKmh"
+       "maxFieldSpeedKmh"
+       "maxAxleLoadT"
+       "passVerdict"]},
+     "testId" {"type" "string"},
+     "liftTestIso730"
+     {"type" "object",
+      "properties"
+      {"liftCapacityKgAtStandardDistance" {"type" "integer"},
+       "hydraulicFlowRateLpm" {"type" "integer"},
+       "liftCycleTimeSec" {"type" "integer"}}},
+     "rollerDynoOecdCode2"
+     {"type" "object",
+      "properties"
+      {"engineRatedPowerKw" {"type" "integer"},
+       "engineRatedRpm" {"type" "integer"},
+       "fuelEfficiencyGramsPerKwh" {"type" "integer"}}},
+     "ptoTestAsaeS217"
+     {"type" "object",
+      "properties"
+      {"pto540RpmPowerKw" {"type" "integer"},
+       "pto1000RpmPowerKw" {"type" "integer"},
+       "thermalStabilityHours" {"type" "integer"}}},
+     "witnessRobotDids"
+     {"type" "array",
+      "items" {"type" "string"},
+      "minItems" 2,
+      "description" "G4: Norikata + Mimi Ed25519"},
+     "electricalEcuAttestationCid" {"type" "string"},
+     "norikataFieldDrive50km"
+     {"type" "object",
+      "properties"
+      {"driverDid"
+       {"type" "string",
+        "description"
+        "G11: ag-mechanic license-bound + Norikata R2+ SAE Level 3 driver-in-seat"},
+       "distanceKm"
+       {"type" "integer", "description" "Target 50 km field test"},
+       "saeAutonomyLevel"
+       {"type" "integer",
+        "description"
+        "G12 invariant: ≤3 (operator-in-seat); SAE Level 5 = N6 NEVER"},
+       "passVerdict" {"type" "boolean"}},
+      "required" ["driverDid" "saeAutonomyLevel" "passVerdict"]},
+     "drawbarTestAsaeS496"
+     {"type" "object",
+      "properties"
+      {"drawbarPowerKw" {"type" "integer"},
+       "drawbarPullKn" {"type" "integer"},
+       "slipPercent" {"type" "integer"},
+       "ballastKg" {"type" "integer"}}}},
+    "required"
+    ["testId"
+     "electricalEcuAttestationCid"
+     "norikataFieldDrive50km"
+     "g12KpiCapVerify"
+     "witnessRobotDids"]}}}}

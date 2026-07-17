@@ -1,0 +1,46 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.suki.chassisAttestation",
+ "description"
+ "Farm tractor chassis fabrication attestation. HSLA-590/780 ladder frame + weld inspection + ≥2 robot witness. Per ADR-2605261500 G1 + G4.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"chassisId" {"type" "string"},
+     "rawSteelLotIds"
+     {"type" "array",
+      "items" {"type" "string"},
+      "description"
+      "HSLA-590/780 + Cu-bearing structural per-lot DID chain (G1 + §2(g) conflict-mineral scan)"},
+     "chassisDesignCid"
+     {"type" "string",
+      "description" "G1: FreeCAD .fcstd open-source CAD CID"},
+     "weldProfileCid"
+     {"type" "string",
+      "description" "MIG/MAG multi-pass profile @ 1 Hz log CID"},
+     "straightnessMmPerM"
+     {"type" "integer",
+      "description" "Sarutahiko parity: <1 mm/m invariant"},
+     "weldInspection"
+     {"type" "object",
+      "properties"
+      {"ultrasonicAsmeClass"
+       {"type" "string", "knownValues" ["I" "II" "III" "IV"]},
+       "defectCount" {"type" "integer"},
+       "reworkCount" {"type" "integer"},
+       "passVerdict" {"type" "boolean"}},
+      "required" ["ultrasonicAsmeClass" "passVerdict"]},
+     "witnessRobotDids"
+     {"type" "array",
+      "items" {"type" "string"},
+      "minItems" 2,
+      "description" "G4: Mimi + Kasane Ed25519"}},
+    "required"
+    ["chassisId"
+     "rawSteelLotIds"
+     "chassisDesignCid"
+     "straightnessMmPerM"
+     "weldInspection"
+     "witnessRobotDids"]}}}}

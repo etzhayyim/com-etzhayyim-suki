@@ -1,0 +1,87 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.suki.electricalEcuAttestation",
+ "description"
+ "**G9 open ECU + G10 Right-to-Repair invariant + N4 closed-ECU NEVER**. Religious-corp first explicit RTR constitutional first-class invariant at firmware level. Per ADR-2605261500.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"electricalEcuId" {"type" "string"},
+     "g10RtrInvariantVerify"
+     {"type" "object",
+      "properties"
+      {"noDealerLockoutAttest"
+       {"type" "boolean",
+        "description"
+        "G10 (a): no software lockout requiring dealer authorization"},
+       "replacementPartsCataloguedOpen"
+       {"type" "boolean",
+        "description"
+        "G10 (b): replacement parts catalogued openly in repair manifest"},
+       "ecuReflashNotManufacturerGated"
+       {"type" "boolean",
+        "description"
+        "G10 (c): ECU re-flash on parts swap NOT manufacturer-gated"},
+       "diagnosticCodesOpenInterpretable"
+       {"type" "boolean",
+        "description"
+        "G10 (d): diagnostic codes interpretable from open docs"},
+       "rtrPassVerdict"
+       {"type" "boolean",
+        "description"
+        "G10 RTR PASS attestation overall verdict (all 4 sub-invariants must pass)"}},
+      "required"
+      ["noDealerLockoutAttest"
+       "replacementPartsCataloguedOpen"
+       "ecuReflashNotManufacturerGated"
+       "diagnosticCodesOpenInterpretable"
+       "rtrPassVerdict"]},
+     "ecuFirmwareSha256" {"type" "string"},
+     "canBusProtocol"
+     {"type" "string",
+      "knownValues" ["ISOBUS-ISO-11783-open"],
+      "description"
+      "G9 + N4: open ISOBUS only; no DRM signature; no proprietary message-ID encryption"},
+     "bootloader"
+     {"type" "object",
+      "properties"
+      {"name"
+       {"type" "string",
+        "knownValues"
+        ["U-Boot-open"
+         "coreboot-open"
+         "TF-A-open-build"
+         "iwakura-open-bootloader-R2-plus"]},
+       "version" {"type" "string"},
+       "sourceCid"
+       {"type" "string",
+        "description" "G2: open-source bootloader source CID"},
+       "unlockStateAtShipDefault"
+       {"type" "boolean",
+        "description"
+        "G2 invariant: MUST be true (tsutae G2 + N2 parallel; suki anti-John-Deere-Knox parallel)"}},
+      "required"
+      ["name" "version" "sourceCid" "unlockStateAtShipDefault"]},
+     "ecuFirmwareCid"
+     {"type" "string",
+      "description"
+      "G2: open BSP firmware image CID; R1 = open RISC-V equiv; R2+ = iwakura SoC"},
+     "witnessRobotDids"
+     {"type" "array",
+      "items" {"type" "string"},
+      "minItems" 2,
+      "description" "G4: Akari + Mimi Ed25519"},
+     "operatorDid" {"type" "string"},
+     "paintAttestationCid" {"type" "string"}},
+    "required"
+    ["electricalEcuId"
+     "paintAttestationCid"
+     "ecuFirmwareCid"
+     "ecuFirmwareSha256"
+     "bootloader"
+     "canBusProtocol"
+     "g10RtrInvariantVerify"
+     "operatorDid"
+     "witnessRobotDids"]}}}}

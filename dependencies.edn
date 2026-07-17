@@ -1,0 +1,17 @@
+{:dependencies
+ [{:dependency/id etzhayyim/root
+   :dependency/repository "https://github.com/etzhayyim/root"
+   :dependency/revision "b622df7928524b0363fd0e3b161ebed719ef206f"
+   :dependency/paths ["20-actors/silicon" "90-docs/adr"]
+   :dependency/purpose #{:silicon-upstream :adr :governance}}
+  {:dependency/id com.etzhayyim/igata :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-igata" :dependency/revision "eb9744b65f2ae9e32b1ba5e6a4b7c4addc120772"}
+  {:dependency/id com.etzhayyim/kanayama :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-kanayama" :dependency/revision "0a076e08c546194b91d3ca0c153c94e3a6680a8d"}
+  {:dependency/id com.etzhayyim/kuni-umi :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-kuni-umi" :dependency/revision "7c0b03e0a649eb8a31e51325bfd0a9219351fc37"}
+  {:dependency/id com.etzhayyim/makura :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-makura" :dependency/revision "2b241bc67c6d66da23db5e152ac1f50857e7b10f"}
+  {:dependency/id com.etzhayyim/mitsuho :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-mitsuho" :dependency/revision "8ce9513470ef1df97568fd575a34c852baa755cd"}
+  {:dependency/id com.etzhayyim/sarutahiko :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-sarutahiko" :dependency/revision "853900528c357b7b4b4bc141ae1f23f3bba29fd4"}
+  {:dependency/id com.etzhayyim/tatekata :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-tatekata" :dependency/revision "fcfc6752d68b6feb5fe397203ae57ed623c35cbb"}
+  {:dependency/id com.etzhayyim/tsutae :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-tsutae" :dependency/revision "94b97b85dadb0e77a059366ff5c5cf17f280a8c7"}
+  {:dependency/id com.etzhayyim/wadachi :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-wadachi" :dependency/revision "6a35ad4487bdb5ab9fbe635d757182f41eb32d0e"}
+  {:dependency/id com.etzhayyim/watatsumi :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-watatsumi" :dependency/revision "203ab989e986488883d885114bc76b8fb4ef20e1"}
+  {:dependency/id com.etzhayyim/yakushi :dependency/repository "https://github.com/etzhayyim/com-etzhayyim-yakushi" :dependency/revision "5b2389671defc00ef8c7cfa522b9bc96b3ac192f"}]}

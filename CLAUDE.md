@@ -1,4 +1,4 @@
-# 20-actors/suki — CLAUDE.md
+# com-etzhayyim-suki — CLAUDE.md
 
 ## Identity
 
@@ -48,7 +48,7 @@ Sarutahiko 9-cell + judah binder parity. judah anchors per-VIN kotoba-datomic re
 
 ## Constitutional Gates (G1–G14)
 
-**IMMUTABLE in R0..R3.** Stored in `manifest.jsonld` under `suki:constitutionalGates` array.
+**IMMUTABLE in R0..R3.** Stored in canonical `manifest.edn` under `:actor/gates`.
 
 See `ADR-2605261500` for full definitions. Key enforcement:
 
@@ -174,7 +174,7 @@ Terminal `vehicleManufactureRecord` emitted by `suki_vehicle_attestation_binder`
 
 **Deployment**:
 ```bash
-cd 20-actors/suki
+cd orgs/etzhayyim/com-etzhayyim-suki
 e7m actor deploy .
 ```
 
@@ -210,13 +210,13 @@ R0 = declaration only.
 
 ## Related Files
 
-- `/20-actors/suki/manifest.jsonld` — DID + cell registry + constitutional gates
+- `manifest.edn` — DID + cell registry + constitutional gates
 - `/90-docs/adr/2605261500-suki-farm-tractor-tier-b-actor-r0.md` — Full R0 master ADR
-- `/20-actors/sarutahiko/README.md` — Sibling (truck mfg + Kasane/Tsutsumi/Akari/Norimichi lineage)
-- `/20-actors/mitsuho/README.md` — Sibling (food/ag operator-side; tractor consumer)
-- `/20-actors/wadachi/README.md` — Sibling (mobility operator; SAE Level ≤3 invariant precedent)
-- `/20-actors/tsutae/README.md` — Sibling (R2R dual-layer: tsutae G3 hardware + suki G10 firmware)
-- `/20-actors/kanayama/README.md` — Sibling (Al + steel + Cu supplier + EoL)
-- `/20-actors/igata/README.md` — Sibling (HPDC engine block / transmission housing R3)
+- `https://github.com/etzhayyim/com-etzhayyim-sarutahiko/blob/main/README.md` — Sibling (truck mfg + Kasane/Tsutsumi/Akari/Norimichi lineage)
+- `https://github.com/etzhayyim/com-etzhayyim-mitsuho/blob/main/README.md` — Sibling (food/ag operator-side; tractor consumer)
+- `https://github.com/etzhayyim/com-etzhayyim-wadachi/blob/main/README.md` — Sibling (mobility operator; SAE Level ≤3 invariant precedent)
+- `https://github.com/etzhayyim/com-etzhayyim-tsutae/blob/main/README.md` — Sibling (R2R dual-layer: tsutae G3 hardware + suki G10 firmware)
+- `https://github.com/etzhayyim/com-etzhayyim-kanayama/blob/main/README.md` — Sibling (Al + steel + Cu supplier + EoL)
+- `https://github.com/etzhayyim/com-etzhayyim-igata/blob/main/README.md` — Sibling (HPDC engine block / transmission housing R3)
 - `/CLAUDE.md` — Status table row 57
 - `/CHARTER-RIDER.md` — §2(b) IP + §2(c) surveillance + §2(e) repair + §2(g) sustainability

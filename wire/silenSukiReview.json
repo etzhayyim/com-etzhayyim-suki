@@ -1,0 +1,51 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.suki.silenSukiReview",
+  "description": "Council Lv6+ baseline review for suki R-phase activation. Parallel to yakushi silenPharmaReview + silicon silenForceReview + igata silenIgataReview + sarutahiko silenVehicleReview + tsutae silenTsutaeReview. Per ADR-2605261500.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "reviewId": {"type": "string"},
+          "reviewType": {"type": "string", "knownValues": [
+            "r1-benchtop-prototype-50hp-baseline",
+            "r1-open-risc-v-ecu-bsp-baseline",
+            "r2-pilot-lfp-hybrid-baseline",
+            "r2-iwakura-soc-integration-baseline",
+            "r2-kuwa-onboard-baseline",
+            "r2-norikata-onboard-baseline",
+            "r3-community-h2-fuel-cell-baseline",
+            "r3-zero-tailpipe-baseline",
+            "r3-mitsuho-harvest-robotics-cooperative-baseline",
+            "r3-kanayama-eol-loop-closure-baseline",
+            "g7-fuel-transition-phase-gate-attestation",
+            "g10-rtr-invariant-attestation",
+            "g14-vin-did-registry-attestation"
+          ]},
+          "councilAttestationCount": {"type": "integer", "description": "Lv6+ supermajority per ADR-2605192300"},
+          "councilSeats": {"type": "array", "items": {"type": "string"}, "minItems": 3},
+          "smeAttestations": {
+            "type": "object",
+            "properties": {
+              "agEngineeringDid": {"type": "string"},
+              "ecuEngineerDid": {"type": "string"},
+              "agMechanicDid": {"type": "string"},
+              "norikataDriverDid": {"type": "string", "description": "R2+: SAE Level 3 driver-in-seat + ag-machine operator license"}
+            }
+          },
+          "approvedRPhase": {"type": "string", "knownValues": ["R1", "R2", "R3"]},
+          "approvedFuelTypes": {"type": "array", "items": {"type": "string"}, "description": "G7 phase-gate approved fuel list"},
+          "approvedPowerHpCap": {"type": "integer", "description": "G12 invariant Wave 1 ≤200 hp"},
+          "approvedSaeAutonomyLevel": {"type": "integer", "description": "G12 + N6: ≤3 (Level 5 NEVER)"},
+          "verdict": {"type": "string", "knownValues": ["approved", "approved-with-conditions", "rejected", "deferred"]},
+          "verdictNotesCid": {"type": "string"},
+          "supersededReviewCid": {"type": "string"},
+          "decidedAt": {"type": "string"}
+        },
+        "required": ["reviewId", "reviewType", "councilAttestationCount", "councilSeats", "verdict", "decidedAt"]
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.suki.paintAttestation",
+  "description": "Water-based KTL paint with VOC <100 g/L (sarutahiko Tsutsumi inheritance). Per ADR-2605261500 Charter Rider §2(g).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "paintId": {
+            "type": "string"
+          },
+          "cabAttestationCid": {
+            "type": "string"
+          },
+          "hitchPtoAttestationCid": {
+            "type": "string"
+          },
+          "ktlPrimerBatch": {
+            "type": "string"
+          },
+          "ktlBathTempC": {
+            "type": "integer"
+          },
+          "ktlVoltageV": {
+            "type": "integer"
+          },
+          "baseCoatColor": {
+            "type": "string"
+          },
+          "baseCoatBatch": {
+            "type": "string"
+          },
+          "clearCoatBatch": {
+            "type": "string"
+          },
+          "vocGramPerLiter": {
+            "type": "integer",
+            "description": "§2(g) invariant: <100 g/L"
+          },
+          "cureProfileCid": {
+            "type": "string",
+            "description": "Bake oven 140-180°C × 30 min @ 1 Hz log CID"
+          },
+          "tempUniformityC": {
+            "type": "integer",
+            "description": "±2°C invariant"
+          },
+          "witnessRobotDids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "description": "G4: Tsutsumi + Migaki Ed25519"
+          }
+        },
+        "required": [
+          "paintId",
+          "cabAttestationCid",
+          "hitchPtoAttestationCid",
+          "vocGramPerLiter",
+          "cureProfileCid",
+          "witnessRobotDids"
+        ]
+      }
+    }
+  }
+}

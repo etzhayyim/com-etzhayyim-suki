@@ -1,0 +1,53 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.suki.powertrainAttestation",
+ "description"
+ "Powertrain assembly attestation with G7 fuel transition phase gate. R0/R1 B100 biodiesel + diesel hybrid; R2+ LFP / H₂ / methanol fuel-cell only. Per ADR-2605261500.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"hydraulicLotId" {"type" "string"},
+     "transmissionType"
+     {"type" "string",
+      "knownValues" ["powershift" "cvt" "direct-drive" "hybrid-cvt"]},
+     "transmissionLotId" {"type" "string"},
+     "chassisAttestationCid" {"type" "string"},
+     "powertrainId" {"type" "string"},
+     "fuelType"
+     {"type" "string",
+      "knownValues"
+      ["B100-biodiesel-R0-R1"
+       "diesel-LFP-hybrid-R0-R1"
+       "LFP-electric-R2-plus"
+       "H2-fuel-cell-R2-plus"
+       "methanol-fuel-cell-R2-plus"],
+      "description" "G7 fuel transition phase gate"},
+     "ratedPowerHp"
+     {"type" "integer",
+      "description"
+      "G12 cap Wave 1 ≤200 hp; mega-tractor ≥400 hp = N3 DEFERRED"},
+     "ptoRpmNominal"
+     {"type" "array",
+      "items" {"type" "integer"},
+      "description" "[540, 1000] standard ISO 500"},
+     "witnessRobotDids"
+     {"type" "array", "items" {"type" "string"}, "minItems" 2},
+     "g7PhaseGateVerify"
+     {"type" "boolean",
+      "description"
+      "G7 invariant: fuelType matches current R-phase requirement"},
+     "operatorDid" {"type" "string"},
+     "engineLotId" {"type" "string"},
+     "hydraulicCapacityLpm" {"type" "integer"}},
+    "required"
+    ["powertrainId"
+     "chassisAttestationCid"
+     "engineLotId"
+     "transmissionLotId"
+     "fuelType"
+     "ratedPowerHp"
+     "g7PhaseGateVerify"
+     "operatorDid"
+     "witnessRobotDids"]}}}}

@@ -1,0 +1,74 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.suki.emissionsAuditRecord",
+ "description"
+ "Emissions audit: Stage V / EPA Tier 4 Final / 日本特殊自動車排ガス. R0-R1 tailpipe-compliant; R2+ zero tailpipe per G7 fuel sunset. Per ADR-2605261500.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"fuelTransitionPhaseGate"
+     {"type" "object",
+      "properties"
+      {"currentRPhase"
+       {"type" "string", "knownValues" ["R0" "R1" "R2" "R3"]},
+       "currentFuelType"
+       {"type" "string",
+        "knownValues"
+        ["B100-biodiesel-R0-R1"
+         "diesel-LFP-hybrid-R0-R1"
+         "LFP-electric-R2-plus"
+         "H2-fuel-cell-R2-plus"
+         "methanol-fuel-cell-R2-plus"]},
+       "g7InvariantVerify"
+       {"type" "boolean",
+        "description" "R-phase ↔ fuel type compatibility per G7"}},
+      "required"
+      ["currentRPhase" "currentFuelType" "g7InvariantVerify"]},
+     "jurisdictionCertifications"
+     {"type" "array",
+      "items"
+      {"type" "string",
+       "knownValues"
+       ["EU-Stage-V-2016-1628"
+        "EPA-Tier-4-Final-40-CFR-1039"
+        "JP-日本特殊自動車排ガス規制"
+        "China-NRSC-IV"]}},
+     "emissionsMeasurement"
+     {"type" "object",
+      "properties"
+      {"noxGramPerKwh" {"type" "integer"},
+       "particulateMatterGramPerKwh" {"type" "integer"},
+       "coGramPerKwh" {"type" "integer"},
+       "hydrocarbonsGramPerKwh" {"type" "integer"},
+       "co2GramPerKwh" {"type" "integer"},
+       "iso8178NrscPass"
+       {"type" "boolean", "description" "Steady-state cycle"},
+       "iso8178NrtcPass"
+       {"type" "boolean", "description" "Transient cycle"}},
+      "required"
+      ["noxGramPerKwh"
+       "particulateMatterGramPerKwh"
+       "iso8178NrscPass"
+       "iso8178NrtcPass"]},
+     "zeroTailpipeR2plus"
+     {"type" "boolean",
+      "description" "G8 invariant: R2+ must be true"},
+     "certificationAuthorityDids"
+     {"type" "array",
+      "items" {"type" "string"},
+      "description" "TÜV / VCA / etc. certifier DID chain"},
+     "witnessRobotDids"
+     {"type" "array", "items" {"type" "string"}, "minItems" 2},
+     "auditId" {"type" "string"},
+     "operatorDid" {"type" "string"},
+     "fieldTestRecordCid" {"type" "string"}},
+    "required"
+    ["auditId"
+     "fieldTestRecordCid"
+     "emissionsMeasurement"
+     "jurisdictionCertifications"
+     "fuelTransitionPhaseGate"
+     "operatorDid"
+     "witnessRobotDids"]}}}}

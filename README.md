@@ -130,12 +130,12 @@ Terminal `vehicleManufactureRecord` emitted by `suki_vehicle_attestation_binder`
 ## References
 
 - `/90-docs/adr/2605261500-suki-farm-tractor-tier-b-actor-r0.md` — Full ADR
-- `/20-actors/sarutahiko/README.md` — Sibling (manufacturing-side truck precedent + Kasane/Tsutsumi/Akari robotics lineage)
-- `/20-actors/mitsuho/README.md` — Sibling (food/agriculture operator-side; consumer of suki tractors via harvest_robotics)
-- `/20-actors/wadachi/README.md` — Sibling (operator-side autonomous-mobility precedent + N6 SAE Level ≤3 invariant)
-- `/20-actors/kanayama/README.md` — Sibling (Al + steel + Cu upstream + EoL downstream)
-- `/20-actors/igata/README.md` — Sibling (HPDC engine/transmission housing upstream R3)
-- `/20-actors/silicon/README.md` — Sibling (iwakura SoC open ECU upstream R2+)
-- `/20-actors/tsutae/README.md` — Sibling (R2R constitutional first precedent; tsutae G3 hardware + suki G10 firmware = dual-layer R2R)
+- `https://github.com/etzhayyim/com-etzhayyim-sarutahiko/blob/main/README.md` — Sibling (manufacturing-side truck precedent + Kasane/Tsutsumi/Akari robotics lineage)
+- `https://github.com/etzhayyim/com-etzhayyim-mitsuho/blob/main/README.md` — Sibling (food/agriculture operator-side; consumer of suki tractors via harvest_robotics)
+- `https://github.com/etzhayyim/com-etzhayyim-wadachi/blob/main/README.md` — Sibling (operator-side autonomous-mobility precedent + N6 SAE Level ≤3 invariant)
+- `https://github.com/etzhayyim/com-etzhayyim-kanayama/blob/main/README.md` — Sibling (Al + steel + Cu upstream + EoL downstream)
+- `https://github.com/etzhayyim/com-etzhayyim-igata/blob/main/README.md` — Sibling (HPDC engine/transmission housing upstream R3)
+- `https://github.com/etzhayyim/root/blob/b622df7928524b0363fd0e3b161ebed719ef206f/20-actors/silicon/README.md` — Sibling (iwakura SoC open ECU upstream R2+)
+- `https://github.com/etzhayyim/com-etzhayyim-tsutae/blob/main/README.md` — Sibling (R2R constitutional first precedent; tsutae G3 hardware + suki G10 firmware = dual-layer R2R)
 - `/CHARTER-RIDER.md` — §2(b) IP + §2(c) surveillance + §2(e) repair + §2(g) sustainability
 - `/CLAUDE.md` — Status table row 57
