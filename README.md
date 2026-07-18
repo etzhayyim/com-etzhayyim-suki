@@ -107,6 +107,17 @@ com.etzhayyim.suki.{
 
 Terminal `vehicleManufactureRecord` emitted by `suki_vehicle_attestation_binder` (sarutahiko binder parity).
 
+## Migration Boundary
+
+`kotoba-lang/kotodama-cells/suki_*` is legacy source
+during migration. New suki cell orchestration belongs in
+`src/suki/murakumo.cljc` as pure `.cljc` actor plans. The plans preserve R0
+scaffold behavior by emitting no write effects until Council, silen-suki,
+ag-engineering, ECU-engineer, ag-mechanic, robot-witness, right-to-repair,
+safety, emissions, and cell-specific baseline attestations are supplied. Host
+placement remains in `kotoba-lang/murakumo`; AT Protocol/PDS surfaces remain in
+`gftdcojp/app-aozora`.
+
 ## Cross-Actor Supply Loop
 
 | Direction | Counter-actor | Relationship | Wire (R-phase) |
